@@ -1,10 +1,12 @@
-const express = require("express");
-const cors = require("cors");
+import express from "express";
+import cors from "cors"
+import dotenv from "dotenv";
 
+dotenv.config();
 const app = express();
 const PORT = 5000;
 
-const moviesRouter = require("./src/routes/movies.js");
+import moviesRouter from "./src/routes/movies.js";
 
 app.use(cors());
 app.use(express.json());
@@ -17,4 +19,6 @@ app.listen(PORT, () => {
     console.log(`Server running at http://localhost:${PORT}`);
 });
 
-app.use("/movies", moviesRouter);
+app.use("/api/movies", moviesRouter);
+
+
